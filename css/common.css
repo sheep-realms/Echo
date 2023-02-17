@@ -1,0 +1,122 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+#echo {
+    width: 100vw;
+    height: 100vh;
+    background-color: #000;
+}
+
+.echo-line {
+    position: fixed;
+    bottom: 20vh;
+    width: 100vw;
+    background-color: #FFF;
+    height: 1px;
+}
+
+.echo-point {
+    --point-size: 64px;
+    width: var(--point-size);
+    height: var(--point-size);
+    position: fixed;
+    bottom: calc(20vh - var(--point-size) / 2);
+    left: calc(50vw - var(--point-size) / 2);
+    border-radius: calc(var(--point-size) / 2);
+    background-color: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    opacity: 1;
+    transition: opacity .5s;
+}
+
+.echo-point:hover {
+    background-color: rgba(255, 255, 255, 0.25);
+}
+
+.echo-point.hide {
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 2s;
+}
+
+.echo-point-content {
+    --point-content-size: 9px;
+    width: var(--point-content-size);
+    height: var(--point-content-size);
+    bottom: calc(20vh - var(--point-content-size) / 2);
+    left: calc(50vw - var(--point-content-size) / 2);
+    border-radius: calc(var(--point-content-size) / 2);
+    background-color: #FFF;
+    pointer-events: none;
+}
+
+.echo-point-bg,
+.echo-point-bg.click {
+    --point-bg-size: 9px;
+    width: var(--point-bg-size);
+    height: var(--point-bg-size);
+    position: absolute;
+    bottom: calc(50% - var(--point-bg-size) / 2);
+    left: calc(50% - var(--point-bg-size) / 2);
+    border-radius: calc(var(--point-bg-size) / 2);
+    background-color: transparent;
+    box-sizing: border-box;
+    pointer-events: none;
+    opacity: 1;
+}
+
+@keyframes echo-point-active-bg {
+    0% {
+        width: 9px;
+        height: 9px;
+        bottom: calc(50% - 9px / 2);
+        left: calc(50% - 9px / 2);
+        border-radius: calc(9px / 2);
+        background-color: rgba(255, 255, 255, 0.75);
+        box-shadow: 0 0 0 #FFF inset;
+    }
+    100% {
+        width: 64px;
+        height: 64px;
+        bottom: calc(50% - 64px / 2);
+        left: calc(50% - 64px / 2);
+        border-radius: calc(64px / 2);
+        background-color: transparent;
+        box-shadow: 0 0 16px transparent inset;
+    }
+}
+
+.echo-point.active .echo-point-bg {
+    animation: echo-point-active-bg .5s ease-out infinite;
+}
+
+.echo-point.active.end .echo-point-bg {
+    opacity: 0;
+    transition: opacity 2s;
+}
+
+.echo-content {
+    height: 80vh;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    box-sizing: border-box;
+    padding: 50px 0;
+}
+
+.echo-output {
+    max-width: min(800px, 95vw);
+    height: auto;
+    color: #FFF;
+    text-align: left;
+}
+
+
+
+.echo-text-bold {font-weight: bold;}
+.echo-text-underline {border-bottom: 1px solid var(--echo-span-color, #FFF);}

@@ -75,7 +75,8 @@ echo.send([
 | color | String | 文本颜色，可使用任何可被 CSS 识别的颜色格式。 |
 | bold | Boolean | 是否为粗体。 |
 | underline | Boolean | 是否有下划线。 |
-| pause | Number | 当前文本输出完毕后的停顿时间。( `Echo.printSpeed * pause` ms) |
+| class | String | 该段消息的 class 属性。 |
+| pause | Number | 当前文本输出完毕后的停顿时间。( `Echo.printSpeed * pause` ms ) |
 
 ## 类：Echo
 ### 属性

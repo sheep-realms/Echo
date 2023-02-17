@@ -51,8 +51,11 @@ echo.on('groupEnd', function(e) {
 
 function msgStyleGenerator(data) {
     let cls = '';
+    if (data?.class) {
+        cls = data.class + ' ';
+    }
     let style = '';
-    if (data?.color) style += `color: ${data.color}; --echo-span-color: ${data.color};; `;
+    if (data?.color) style += `color: ${data.color}; --echo-span-color: ${data.color}; `;
     if (data?.bold) cls += 'echo-text-bold '
     if (data?.underline) cls += 'echo-text-underline '
 

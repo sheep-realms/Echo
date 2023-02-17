@@ -1,3 +1,9 @@
+/* ============================================================
+ * Echo
+ * Github: https://github.com/sheep-realms/Echo
+ * License: GNU General Public License 3.0
+ * ============================================================
+ */
 class Echo {
     constructor() {
         this.message = '';

@@ -14,6 +14,7 @@ class Echo {
         this.groupStack = [];
         this.printSpeed = 30;
         this.state = 'stop';
+        this.typewrite = 'none';
         this.event = {
             backspace: function() {},
             clear: function() {},
@@ -23,7 +24,8 @@ class Echo {
             printEnd: function() {},
             printStart: function() {},
             send: function() {},
-            skip: function() {}
+            skip: function() {},
+            typewriteEnd: function() {}
         }
     }
 
@@ -40,13 +42,17 @@ class Echo {
         this.event.clear();
     }
 
-    groupEnd() {
+    groupEnd(obj = {}) {
         let i = this.groupStack.shift();
         let n = this.groupStack[0];
         if (n == undefined) n = 0;
         let e = {
             groupId: i,
             groupNow: n
+        }
+        
+        if (obj?.typewrite) {
+            this.typewrite = 'ready';
         }
         this.event.groupEnd(e);
         return e;
@@ -59,6 +65,9 @@ class Echo {
             groupId: this.groupCount,
             groupNow: this.groupCount,
             data: obj
+        }
+        if (obj?.typewrite) {
+            this.typewrite = 'input';
         }
         this.event.groupStart(e);
         return e;
@@ -74,13 +83,19 @@ class Echo {
                     class: msg?.class,
                     color: msg?.color,
                     bold: msg?.bold,
-                    underline: msg?.underline
+                    underline: msg?.underline,
+                    typewrite: msg?.typewrite
                 },
                 ...msg.text.split(''),
                 {
-                    action: 'group_end'
+                    action: 'group_end',
+                    typewrite: msg?.typewrite
                 }
             ]
+
+            if (msg?.typewriteResult) {
+                data = [...data, msg.typewriteResult];
+            }
 
             if (msg?.pause) {
                 let before = ' '.repeat(msg.pause).split(' ');
@@ -112,11 +127,18 @@ class Echo {
             if (typeof that.messageBuffer[0] == 'string') {
                 a = that.messageBuffer.shift();
                 // 中日韩字符跳过一回合
-                if (a.search(/[\u4e00-\u9fa5\u0800-\u4e00\uac00-\ud7ff]/) != -1) {
+                if (a.search(/[\u4e00-\u9fa5\u0800-\u4e00\uac00-\ud7ff]/) != -1 && this.typewrite == 'none') {
                     that.dbChrBuffer = a;
                     return;
                 }
             }
+        }
+
+        if (that.typewrite == 'ready') {
+            that.typewrite = 'none';
+            that.event.typewriteEnd();
+        } else if (that.typewrite == 'input' && a == "'" && that.messageBuffer[0] != undefined) {
+            a += that.messageBuffer.shift();
         }
 
         // 触发打印事件
@@ -127,7 +149,7 @@ class Echo {
             if (obj.action == 'group_start') {
                 that.groupStart(obj);
             } else if (obj.action == 'group_end') {
-                that.groupEnd();
+                that.groupEnd(obj);
             }
         }
 
@@ -178,5 +200,10 @@ class Echo {
         this.event.printEnd();
         this.state = 'stop';
         return txt;
+    }
+
+    typewriteEnd() {
+        // 触发打字结束事件
+        this.event.typewriteEnd();
     }
 }

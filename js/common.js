@@ -35,8 +35,14 @@ echo.on('printEnd', function() {
 });
 
 echo.on('backspace', function() {
-    let str = $('.echo-output').text();
-    $('.echo-output').text(str.substring(0, str.length - 1));
+    let str = '';
+    if (gruopIndex == 0) {
+        str = $('.echo-output').html();
+        $('.echo-output').html(str.substring(0, str.length - 1));
+    } else {
+        str = $(`.echo-output span[data-group="${gruopIndex}"]`).html();
+        $(`.echo-output span[data-group="${gruopIndex}"]`).html(str.substring(0, str.length - 1));
+    }
 });
 
 echo.on('groupStart', function(e) {
@@ -55,6 +61,7 @@ function msgStyleGenerator(data) {
         cls = data.class + ' ';
     }
     let style = '';
+    if (data?.typewrite) cls += 'echo-text-typewrite '
     if (data?.color) style += `color: ${data.color}; --echo-span-color: ${data.color}; `;
     if (data?.bold) cls += 'echo-text-bold '
     if (data?.underline) cls += 'echo-text-underline '
@@ -64,3 +71,7 @@ function msgStyleGenerator(data) {
         style: style
     }
 }
+
+echo.on('typewriteEnd', function() {
+    $('.echo-output .echo-text-typewrite').remove();
+});

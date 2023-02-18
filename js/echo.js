@@ -127,7 +127,7 @@ class Echo {
             if (typeof that.messageBuffer[0] == 'string') {
                 a = that.messageBuffer.shift();
                 // 中日韩字符跳过一回合
-                if (a.search(/[\u4e00-\u9fa5\u0800-\u4e00\uac00-\ud7ff]/) != -1 && this.typewrite == 'none') {
+                if (a.search(/[\u4e00-\u9fa5\u0800-\u4e00\uac00-\ud7ff]/) != -1 && that.typewrite == 'none') {
                     that.dbChrBuffer = a;
                     return;
                 }

@@ -18,6 +18,11 @@
 | pause | Number | 当前文本输出完毕后的停顿时间。( `Echo.printSpeed * pause` ms ) |
 
 ## 类：Echo
+### 构建参数
+| 名称 | 类型 | 描述 | 默认值 |
+| - | - | - | - |
+| $sel | String | 见 [#rd](#rd)。 |  |
+
 ### 属性
 | 名称 | 类型 | 描述 | 默认值 |
 | - | - | - | - |
@@ -30,6 +35,12 @@
 | printSpeed | Number | 打印速度。 | 30 |
 | state | String | 运行状态。 | 'stop' |
 | event | Object | 用于绑定事件。 | 略 |
+
+### rd
+快速部署，需要 JQuery 支持，适用于简单的应用场景，仅提供基本功能，不支持自定义样式、动作等高级功能。
+| 名称 | 类型 | 描述 | 默认值 |
+| - | - | - | - |
+| $sel | String | JQuery 选择器，选择需要输出的元素。 |  |
 
 ### backspace
 退格，触发 `backspace` 事件。（弃用方法，需要重写）

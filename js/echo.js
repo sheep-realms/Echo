@@ -5,7 +5,7 @@
  * ============================================================
  */
 class Echo {
-    constructor() {
+    constructor($sel = '') {
         this.message = '';
         this.messageBuffer = [];
         this.dbChrBuffer = '';
@@ -26,6 +26,26 @@ class Echo {
             send: function() {},
             skip: function() {},
             typewriteEnd: function() {}
+        }
+
+        if ($sel != '') {
+            this.rd($sel);
+        }
+    }
+
+    rd($sel) {
+        if (typeof jQuery != 'undefined') { 
+            this.on('print', function(chr = '') {
+                $($sel).append(chr);
+            });
+            this.on('clear', function() {
+                $($sel).text('');
+            });
+            this.on('printEnd', function() {
+                $($sel).html($($sel).html());
+            });
+        } else { 
+            console.error('[Echo] Rapid Deployment Error: jQuery is not loaded.');
         }
     }
 

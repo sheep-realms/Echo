@@ -5,7 +5,9 @@ echo.send([
 	},
 	{
 		text: '“源石”',
-		bold: true,
+		style: {
+			bold: true
+		}
 	},
 	{
 		text: '。',
@@ -14,7 +16,9 @@ echo.send([
 	'依赖于技术的进步，源石蕴含的能量投入工业后使得文明顺利迈入现代，与此同时，源石本身也催生出',
 	{
 		text: '“感染者”',
-		color: 'red'
+		style: {
+			color: 'red'
+		}
 	},
 	{
 		text: '的存在。',
@@ -22,7 +26,9 @@ echo.send([
 	},
 	{
 		text: '“感染者”',
-		color: 'red'
+		style: {
+			color: 'red'
+		}
 	},
 	{
 		text: '是身俱力量与不幸的存在，如今他们中的一部分，妄图与源石整合为一，为大地带来新的秩序。',
@@ -30,7 +36,9 @@ echo.send([
 	},
 	{
 		text: '这场战火阴谋是我们对抗天灾遇到的新的阻碍。',
-		underline: true,
+		style: {
+			underline: true
+		},
 		pause: 20
 	},
 	{
@@ -42,7 +50,9 @@ echo.send([
 	},
 	{
 		text: '“罗德岛”',
-		bold: true,
+		style: {
+			bold: true
+		}
 	},
 	{
 		text: '的战术头脑，',

@@ -11,10 +11,8 @@
 | 名称 | 类型 | 描述 |
 | - | - | - |
 | text | String | 【必选】显示的文本。 |
-| color | String | 文本颜色，可使用任何可被 CSS 识别的颜色格式。 |
-| bold | Boolean | 是否为粗体。 |
-| underline | Boolean | 是否有下划线。 |
-| class | String | 该段消息的 class 属性。 |
+| class | String | 文本的 class 属性。 |
+| style | Object | 文本的自定义样式。Echo 本身不定义样式，样式需要下游代码实现。 |
 | pause | Number | 当前文本输出完毕后的停顿时间。( `Echo.printSpeed * pause` ms ) |
 
 ## 类：Echo
@@ -34,6 +32,7 @@
 | groupStack | Array | 分组堆栈。 | [] |
 | printSpeed | Number | 打印速度。 | 30 |
 | state | String | 运行状态。 | 'stop' |
+| typewrite | String | 打字动作状态。 | 'none' |
 | event | Object | 用于绑定事件。 | 略 |
 
 ### rd

@@ -62,9 +62,11 @@ function msgStyleGenerator(data) {
     }
     let style = '';
     if (data?.typewrite) cls += 'echo-text-typewrite '
-    if (data?.color) style += `color: ${data.color}; --echo-span-color: ${data.color}; `;
-    if (data?.bold) cls += 'echo-text-bold '
-    if (data?.underline) cls += 'echo-text-underline '
+    if (data?.style) {
+        if (data.style?.color) style += `color: ${data.style.color}; --echo-span-color: ${data.style.color}; `;
+        if (data.style?.bold) cls += 'echo-text-bold '
+        if (data.style?.underline) cls += 'echo-text-underline '
+    }
 
     return {
         class: cls,

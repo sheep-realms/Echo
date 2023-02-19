@@ -101,9 +101,7 @@ class Echo {
                 {
                     action: 'group_start',
                     class: msg?.class,
-                    color: msg?.color,
-                    bold: msg?.bold,
-                    underline: msg?.underline,
+                    style: msg?.style,
                     typewrite: msg?.typewrite
                 },
                 ...msg.text.split(''),

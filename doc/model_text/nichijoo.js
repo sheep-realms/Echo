@@ -20,13 +20,9 @@ echo.send([
 		typewrite: true,
 		typewriteResult: 'いる'
 	}, {
-		text: "nichijoo",
+		text: "nichijoowa",
 		typewrite: true,
-		typewriteResult: '日常'
-	}, {
-		text: "wa",
-		typewrite: true,
-		typewriteResult: 'は、'
+		typewriteResult: '日常は、'
 	}, {
 		text: "jitsuwa",
 		typewrite: true,

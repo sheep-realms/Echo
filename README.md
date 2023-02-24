@@ -33,6 +33,8 @@
 | groupCount | Number | 分组计数。 | 0 |
 | groupStack | Array | 分组堆栈。 | [] |
 | printSpeed | Number | 打印速度。 | 30 |
+| printSpeedStart | Number | 启动时的打印速度。 | 30 |
+| printSpeedChange | Number | 打印过程中的打印速度。 | 30 |
 | state | String | 运行状态。 | 'stop' |
 | typewrite | String | 打字动作状态。 | 'none' |
 | event | Object | 用于绑定事件。 | 略 |

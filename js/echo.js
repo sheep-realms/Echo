@@ -13,10 +13,10 @@ class Echo {
         this.groupCount = 0;
         this.groupStack = [];
         this.printSpeed = 30;
-        this.state = 'stop';
-        this.typewrite = 'none';
         this.printSpeedStart = 30;
         this.printSpeedChange = 30;
+        this.state = 'stop';
+        this.typewrite = 'none';
         this.event = {
             backspace: function() {},
             clear: function() {},

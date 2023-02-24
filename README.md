@@ -14,6 +14,8 @@
 | class | String | 文本的 class 属性。 |
 | style | Object | 文本的自定义样式。Echo 本身不定义样式，样式需要下游代码实现。 |
 | pause | Number | 当前文本输出完毕后的停顿时间。( `Echo.printSpeed * pause` ms ) |
+| speed | Number | 当前文本的打印速度，即每个打印循环所用时间（ms）。 |
+| typewrite | String | 模拟打字动作。在输出 `text` 字段的内容之前先打印此字段的内容，随后被 `text` 字段的内容替换。 |
 
 ## 类：Echo
 ### 构建参数
@@ -89,3 +91,13 @@
 
 ### skip
 跳过打印过程，立即输出完整内容，触发 `skip` 事件。（弃用方法，需要重写）
+
+### speed
+在打印过程中修改打印速度。
+
+| 参数名称 | 类型 | 描述 | 默认值 |
+| - | - | - | - |
+| value | Number | 定时器延时毫秒。 | undefined |
+
+### typewriteEnd
+打印动作效果结束，触发 `typewriteEnd` 事件。

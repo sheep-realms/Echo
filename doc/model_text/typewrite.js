@@ -1,64 +1,52 @@
 echo.send([
 	{
-		text: "zhe'shi",
-		typewrite: true,
-		typewriteResult: '这是'
+		text: '这是',
+		typewrite: "zhe'shi"
 	}, {
-		text: "yi'duan",
-		typewrite: true,
-		typewriteResult: '一段'
+		text: '一段',
+		typewrite: "yi'duan"
 	}, {
-		text: "zhong'wen",
-		typewrite: true,
-		typewriteResult: '中文'
+		text: '中文',
+		typewrite: "zhong'wen"
 	}, {
-		text: "shu'ru'fa",
-		typewrite: true,
-		typewriteResult: '输入法'
+		text: '输入法',
+		typewrite: "shu'ru'fa"
 	}, {
-		text: "da'zi",
-		typewrite: true,
-		typewriteResult: '打字'
+		text: '打字',
+		typewrite: "da'zi"
 	}, {
-		text: "ce'shi",
-		typewrite: true,
-		typewriteResult: '测试'
+		text: '测试',
+		typewrite: "ce'shi"
 	},
 	'。',
     {
-		text: "ren'zhi'chu",
-		typewrite: true,
-		typewriteResult: '人之初'
+		text: '人之初',
+		typewrite: "ren'zhi'chu"
 	}, 
     '，',
     {
-		text: "xing'ben'shan",
-		typewrite: true,
-		typewriteResult: '性本善'
+		text: '性本善',
+		typewrite: "xing'ben'shan"
 	}, 
     '。',
     {
-		text: "j's'b'y",
-		typewrite: true,
-		typewriteResult: '己所不欲'
+		text: '己所不欲',
+		typewrite: "j's'b'y"
 	}, 
     '，',
     {
-		text: "wu'shi'y'r",
-		typewrite: true,
-		typewriteResult: '勿施于人'
+		text: '勿施于人',
+		typewrite: "wu'shi'y'r"
 	}, 
     '。',
     {
-		text: "g'l'g'j's's'y",
-		typewrite: true,
-		typewriteResult: '苟利国家生死以'
+		text: '苟利国家生死以',
+		typewrite: "g'l'g'j's's'y"
 	}, 
     '，',
     {
-		text: "q'y'h'f'b'q'z",
-		typewrite: true,
-		typewriteResult: '岂因祸福避趋之'
+		text: '岂因祸福避趋之',
+		typewrite: "q'y'h'f'b'q'z"
 	}, 
     '。'
 ], {printSpeed:90})

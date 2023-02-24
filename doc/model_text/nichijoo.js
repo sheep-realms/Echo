@@ -1,55 +1,42 @@
 echo.send([
 	{
-		text: "Hibi",
-		typewrite: true,
-		typewriteResult: '日々'
+		text: '日々',
+		typewrite: "Hibi"
 	}, {
-		text: "watashitachi",
-		typewrite: true,
-		typewriteResult: '私たち'
+		text: '私たち',
+		typewrite: "watashitachi"
 	}, {
-		text: "ga",
-		typewrite: true,
-		typewriteResult: 'が'
+		text: 'が',
+		typewrite: "ga"
 	}, {
-		text: "sugoshite",
-		typewrite: true,
-		typewriteResult: '過ごして'
+		text: '過ごして',
+		typewrite: "sugoshite"
 	}, {
-		text: "iru",
-		typewrite: true,
-		typewriteResult: 'いる'
+		text: 'いる',
+		typewrite: "iru"
 	}, {
-		text: "nichijoowa",
-		typewrite: true,
-		typewriteResult: '日常は、'
+		text: '日常は、',
+		typewrite: "nichijoowa"
 	}, {
-		text: "jitsuwa",
-		typewrite: true,
-		typewriteResult: '実は、'
+		text: '実は、',
+		typewrite: "jitsuwa"
 	}, {
-		text: "kiseki",
-		typewrite: true,
-		typewriteResult: '奇跡'
+		text: '奇跡',
+		typewrite: "kiseki"
 	}, {
-		text: "no",
-		typewrite: true,
-		typewriteResult: 'の'
+		text: 'の',
+		typewrite: "no"
 	}, {
-		text: "renzokuna",
-		typewrite: true,
-		typewriteResult: '連続な'
+		text: '連続な',
+		typewrite: "renzokuna"
 	}, {
-		text: "no",
-		typewrite: true,
-		typewriteResult: 'の'
+		text: 'の',
+		typewrite: "no"
 	}, {
-		text: "kamo",
-		typewrite: true,
-		typewriteResult: 'かも'
+		text: 'かも',
+		typewrite: "kamo"
 	}, {
-		text: "shirenai",
-		typewrite: true,
-		typewriteResult: 'しれない'
+		text: 'しれない',
+		typewrite: "shirenai"
 	}
 ], {printSpeed:60})

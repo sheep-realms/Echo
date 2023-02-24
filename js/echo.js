@@ -71,7 +71,7 @@ class Echo {
             groupNow: n
         }
         
-        if (obj?.typewrite) {
+        if (obj?.typewrite != undefined) {
             this.typewrite = 'ready';
         }
         this.event.groupEnd(e);
@@ -97,22 +97,29 @@ class Echo {
         if (typeof msg == 'string') {
             return msg.split('');
         } else if (typeof msg == 'object' && msg != null) {
-            let data = [
-                {
-                    action: 'group_start',
-                    class: msg?.class,
-                    style: msg?.style,
-                    typewrite: msg?.typewrite
-                },
-                ...msg.text.split(''),
-                {
-                    action: 'group_end',
-                    typewrite: msg?.typewrite
-                }
-            ]
+            let dataBefore = {
+                action: 'group_start',
+                class: msg?.class,
+                style: msg?.style,
+                typewrite: msg?.typewrite
+            };
 
-            if (msg?.typewriteResult) {
-                data = [...data, msg.typewriteResult];
+            let dataAfter = {
+                action: 'group_end',
+                typewrite: msg?.typewrite
+            };
+
+            let dataContent, data;
+            if (msg?.typewrite == undefined) {
+                dataContent = msg.text.split('');
+            } else {
+                dataContent = msg.typewrite.split('');
+            }
+
+            data = [dataBefore, ...dataContent, dataAfter];
+
+            if (msg?.typewrite != undefined) {
+                data = [...data, msg.text];
             }
 
             if (msg?.pause) {

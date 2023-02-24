@@ -5,6 +5,7 @@ echo.send([
 	},
 	{
 		text: '“源石”',
+		speed: 45,
 		style: {
 			bold: true
 		}
@@ -60,6 +61,7 @@ echo.send([
 	},
 	{
 		text: '你准备好了吗？',
+		speed: 90,
 		pause: 20
 	},
 ])

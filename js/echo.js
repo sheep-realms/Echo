@@ -15,6 +15,8 @@ class Echo {
         this.printSpeed = 30;
         this.state = 'stop';
         this.typewrite = 'none';
+        this.printSpeedStart = 30;
+        this.printSpeedChange = 30;
         this.event = {
             backspace: function() {},
             clear: function() {},
@@ -26,7 +28,7 @@ class Echo {
             send: function() {},
             skip: function() {},
             typewriteEnd: function() {}
-        }
+        };
 
         if ($sel != '') {
             this.rd($sel);
@@ -74,6 +76,7 @@ class Echo {
         if (obj?.typewrite != undefined) {
             this.typewrite = 'ready';
         }
+        if (this.printSpeedChange != this.printSpeedStart) this.speed();
         this.event.groupEnd(e);
         return e;
     }
@@ -89,6 +92,9 @@ class Echo {
         if (obj?.typewrite) {
             this.typewrite = 'input';
         }
+        if (obj?.printSpeed) {
+            this.speed(obj.printSpeed);
+        }
         this.event.groupStart(e);
         return e;
     }
@@ -101,7 +107,8 @@ class Echo {
                 action: 'group_start',
                 class: msg?.class,
                 style: msg?.style,
-                typewrite: msg?.typewrite
+                typewrite: msg?.typewrite,
+                printSpeed: msg?.speed
             };
 
             let dataAfter = {
@@ -208,7 +215,15 @@ class Echo {
                 this.messageBuffer = this.messageSerialize(this.message);
             }
         }
-        this.timer = setInterval(this.print, (data?.printSpeed ? data.printSpeed : this.printSpeed), this);
+
+        if (data?.printSpeed) {
+            this.printSpeedStart = data.printSpeed;
+            this.printSpeedChange = data.printSpeed;
+        } else {
+            this.printSpeedStart = this.printSpeed;
+            this.printSpeedChange = this.printSpeed;
+        }
+        this.timer = setInterval(this.print, this.printSpeedStart, this);
         this.state = 'ready';
         return this.message;
     }
@@ -225,6 +240,18 @@ class Echo {
         this.event.printEnd();
         this.state = 'stop';
         return txt;
+    }
+
+    speed(value = undefined) {
+        if (this.state == 'stop') return;
+        if (value != undefined) {
+            this.printSpeedChange = value;
+        } else {
+            this.printSpeedChange = this.printSpeedStart;
+        }
+        clearInterval(this.timer);
+        this.timer = setInterval(this.print, this.printSpeedChange, this);
+        return this.printSpeedChange;
     }
 
     typewriteEnd() {

@@ -8,6 +8,7 @@ class Echo {
     constructor($sel = '') {
         this.message = '';
         this.messageBuffer = [];
+        this.messageList = [];
         this.dbChrBuffer = '';
         this.timer = 0;
         this.groupCount = 0;
@@ -22,10 +23,12 @@ class Echo {
             clear: function() {},
             groupEnd: function() {},
             groupStart: function() {},
+            next: function() {},
             print: function() {},
             printEnd: function() {},
             printStart: function() {},
             send: function() {},
+            sendList: function() {},
             skip: function() {},
             typewriteEnd: function() {}
         };
@@ -139,6 +142,14 @@ class Echo {
         }
     }
 
+    next() {
+        let msg = this.messageList.shift();
+        if (msg == undefined) return;
+        // 触发打印下一条消息事件
+        this.event.next(msg);
+        return this.send(msg.message, msg?.data);
+    }
+
     on(eventName, action = function() {}) {
         if (typeof action != 'function') return;
         return this.event[eventName] = action;
@@ -226,6 +237,13 @@ class Echo {
         this.timer = setInterval(this.print, this.printSpeedStart, this);
         this.state = 'ready';
         return this.message;
+    }
+
+    sendList(messageList) {
+        if (!Array.isArray(messageList)) return;
+        this.messageList = messageList;
+        this.event.sendList();
+        return this.next();
     }
 
     skip() {

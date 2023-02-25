@@ -17,6 +17,14 @@
 | speed | Number | 当前文本的打印速度，即每个打印循环所用时间（ms）。 |
 | typewrite | String | 模拟打字动作。在输出 `text` 字段的内容之前先打印此字段的内容，随后被 `text` 字段的内容替换。 |
 
+## 消息队列格式
+消息队列为 Array 类型，每一个数组元素包含以下值：
+
+| 名称 | 类型 | 描述 |
+| - | - | - |
+| message | String / Array / Object | 消息对象。 |
+| data | Object | 打印启动参数。 |
+
 ## 类：Echo
 ### 构建参数
 | 名称 | 类型 | 描述 | 默认值 |
@@ -28,6 +36,7 @@
 | - | - | - | - |
 | message | String / Array / Object | 上一条消息。 | '' |
 | messageBuffer | Array | 消息缓冲区。 | [] |
+| messageList | Array | 消息队列。 | [] |
 | dbChrBuffer | String | 中日韩字符缓冲区。 | '' |
 | timer | Number | 定时器ID。 | 0 |
 | groupCount | Number | 分组计数。 | 0 |
@@ -68,8 +77,11 @@
 | - | - | - | - |
 | msg | String / Array / Object | 消息对象。 | |
 
+### next
+打印消息队列中的下一条消息。
+
 ### on
-绑定事件。
+绑定事件。可绑定的事件详见[事件列表](doc/event.md)。
 
 | 参数名称 | 类型 | 描述 | 默认值 |
 | - | - | - | - |
@@ -89,7 +101,14 @@
 | 参数名称 | 类型 | 描述 | 默认值 |
 | - | - | - | - |
 | text | String / Array / Object | 消息对象。 | |
-| data | Object | 额外参数。 | {} |
+| data | Object | 打印启动参数。 | {} |
+
+### sendList
+使用消息队列开始打印新消息，依次触发 `sendList`、`next`、`send` 事件。
+
+| 参数名称 | 类型 | 描述 | 默认值 |
+| - | - | - | - |
+| messageList | Array | 消息队列。 | |
 
 ### skip
 跳过打印过程，立即输出完整内容，触发 `skip` 事件。（弃用方法，需要重写）
@@ -102,4 +121,4 @@
 | value | Number | 定时器延时毫秒。 | undefined |
 
 ### typewriteEnd
-打印动作效果结束，触发 `typewriteEnd` 事件。
+打字动作效果结束，触发 `typewriteEnd` 事件。

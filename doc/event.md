@@ -1,5 +1,5 @@
 # Echo 事件
-## backspace
+## ~~backspace~~
 退格事件，由 `backspace()` 方法触发，弃用。
 
 ## clear
@@ -45,7 +45,7 @@
 ## sendList
 发送消息队列事件，由 `sendList()` 方法触发。发送消息队列时触发，在 `next`、`send`、`printStart` 事件之前。
 
-## skip
+## ~~skip~~
 跳过事件，由 `skip()` 方法触发，弃用，返回剩余未打印字符（不能正常工作）。
 
 ## typewriteEnd

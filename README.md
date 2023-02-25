@@ -54,7 +54,7 @@
 | - | - | - | - |
 | $sel | String | JQuery 选择器，选择需要输出的元素。 |  |
 
-### backspace
+### ~~backspace~~
 退格，触发 `backspace` 事件。（弃用方法，需要重写）
 
 ### clear
@@ -110,7 +110,7 @@
 | - | - | - | - |
 | messageList | Array | 消息队列。 | |
 
-### skip
+### ~~skip~~
 跳过打印过程，立即输出完整内容，触发 `skip` 事件。（弃用方法，需要重写）
 
 ### speed

@@ -41,7 +41,7 @@
 .echo-point.hide {
     opacity: 0;
     pointer-events: none;
-    transition: opacity 2s;
+    transition: opacity 2s ease-in;
 }
 
 .echo-point-content {
@@ -114,10 +114,28 @@
     height: auto;
     color: #FFF;
     text-align: left;
+    opacity: 1;
+}
+
+.echo-output.hide {
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 10s linear;
 }
 
 
 
 .echo-text-bold {font-weight: bold;}
+.echo-text-italic {font-style: italic;}
 .echo-text-underline {border-bottom: 1px solid var(--echo-span-color, #FFF);}
 .echo-text-typewrite {background-color: rgba(255, 255, 255, 0.25); border-bottom: 1px dotted var(--echo-span-color, #FFF);}
+
+@keyframes echo-text-rock-y {
+    0% {position: relative; top: 0px;}
+    25% {position: relative; top: -2px;}
+    75% {position: relative; top: 2px;}
+    100% {position: relative; top: 0px;}
+}
+.echo-text-rock-y {
+    animation: echo-text-rock-y .5s infinite;
+}

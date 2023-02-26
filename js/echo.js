@@ -143,6 +143,7 @@ class Echo {
     }
 
     next() {
+        if (this.messageList == undefined) return;
         let msg = this.messageList.shift();
         if (msg == undefined) return;
         // 触发打印下一条消息事件

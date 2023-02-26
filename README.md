@@ -25,6 +25,13 @@
 | message | String / Array / Object | 消息对象。 |
 | data | Object | 打印启动参数。 |
 
+## 打印启动参数格式
+打印启动参数为 Object 类型，包含以下值：
+
+| 名称 | 类型 | 描述 |
+| - | - | - |
+| printSpeed | Number | 打印速度。 |
+
 ## 类：Echo
 ### 构建参数
 | 名称 | 类型 | 描述 | 默认值 |

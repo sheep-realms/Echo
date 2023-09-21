@@ -94,6 +94,9 @@ let randomMsOutTxt = 20000;
 let randomMsMax = 120000;
 let randomMsMin = 20000;
 
+// let randomMsMax = 20000;
+// let randomMsMin = 10000;
+
 let pointOutTimer = 0;
 let textOutTimer = 0;
 
@@ -105,6 +108,7 @@ $(document).on('click', '.echo-point', function() {
     sendNow = true;
     echo.next();
     sendNow = false;
+    elog('[->] 已发送回执包。');
 });
 
 echo.on('send', function() {
@@ -128,10 +132,16 @@ function setState(value) {
         } else {
             timerOut();
         }
+        elog('[*-] 解码完毕。');
     } else {
         clearTimeout(randomTimer);
         clearTimeout(pointOutTimer);
         clearTimeout(textOutTimer);
+        if (echo.messageBuffer.length > 64) {
+            elog('[<<] 收到可识别的流式传输消息，正在解码...');
+        } else {
+            elog('[<-] 收到可识别的消息，正在解码...');
+        }
     }
 }
 
@@ -173,9 +183,25 @@ function timerOut(value = randomMsOut) {
         $('.echo-point').removeClass('end');
         $('.echo-point').removeClass('active');
         $('.echo-point').addClass('hide');
+        elog('[-x] 对方信号丢失。');
     }, value);
     textOutTimer = setTimeout(function() {
         $('.echo-output').addClass('hide');
         timerSet(timerRandomMs());
     }, randomMsOutTxt);
+}
+
+function elog(msg) {
+    if (debugMode) return;
+    let d = new Date();
+    let ds = `${d.getFullYear()}-${s0(d.getMonth() + 1, 2)}-${s0(d.getDate(), 2)} ${s0(d.getHours(), 2)}:${s0(d.getMinutes(), 2)}:${s0(d.getSeconds(), 2)}.${s0(d.getMilliseconds(), 3)}`;
+    console.log(`[${ds}] ${msg}`);
+}
+
+function s0(n, l) {
+    let ns = String(n);
+    for (let i = 0; i < (l - ns.length); i++) {
+        ns = '0' + ns;
+    }
+    return ns;
 }

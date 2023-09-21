@@ -134,5 +134,93 @@ let echoMessages = [
             {message: '请病人不要死在走廊上！'},
             {message: '这个医院的院长是个骗子！'}
         ]
+    }, {
+        messages: [
+            {message: '也许你不应该只关注表象，一些有价值的信息是无法展现在台面上的。'},
+            {message: '对，没错，说的就是你。'}
+        ]
+    }, {
+        messages: [
+            {message: '他们来自世界各地。'},
+            {message: '一同建造一座直入云霄的粘粘巨塔！'}
+        ]
+    }, {
+        messages: [
+            {message: '不要回答！不要回答！不要回答！'},
+            {
+                message: [
+                    {text: '[白噪音]', style: {italic: true}, pause: 300},
+                    {text: ' [杂音]', style: {italic: true}}
+                ]
+            }
+        ]
+    }, {
+        messages: [
+            {
+                message: [
+                    '所有不重复的旗帜图案共有 ',
+                    {text: '809,573,616,779,945,488', typewrite: '$=16*(608^0+608^1+608^2+608^3+608^4+608^5+608^6)', speed: 60},
+                    ' 种可能！'
+                ]
+            },
+            {message: '不过这里面有一部分旗帜在视觉上没有差异，因为有些图案被覆盖掉了。'}
+        ]
+    }, {
+        messages: [
+            {message: 'ZXC741 ASD852 QWE963\'', data: {printSpeed: 210}},
+            {message: '身份校验失败。'}
+        ]
+    }, {
+        messages: [
+            {message: '///d// may/// ////ay ///day /// //s ma//// m///// ////// ', data: {printSpeed: 90}},
+            {message: 'anin//// /s /our //me /s //// ///ur na//', data: {printSpeed: 90}},
+            {message: '// // // /o // //me /s no/ ///day // /tone // /yan st/// i ne// h/// //', data: {printSpeed: 90}},
+            {message: [{text: '[白噪音]', style: {italic: true}, pause: 200}]}
+        ]
+    }, {
+        messages: [
+            {
+                message: [
+                    '嘿！你在吗？ ',
+                    {text: '▼', style: {rock: 'y'}}
+                ]
+            }, {
+                message: [
+                    '这次我给你准备了一个精彩的故事！ ',
+                    {text: '▼', style: {rock: 'y'}}
+                ]
+            }, {
+                message: [
+                    '如果你已经准备好了的话，请给我发送：START ',
+                    {text: '▼', style: {rock: 'y'}}
+                ]
+            }, {
+                message: [
+                    '......？ ',
+                    {text: '▼', style: {rock: 'y'}}
+                ]
+            }, {
+                message: [
+                    '什么？！你居然只有这一种回复？！ ',
+                    {text: '▼', style: {rock: 'y'}}
+                ]
+            }, {
+                message: [
+                    '好吧，看来你还没有准备好和我们交流所必要的东西，我很遗憾...... ',
+                    {text: '▼', style: {rock: 'y'}}
+                ]
+            }, {message: '- THE END -'}
+        ]
+    }, {
+        messages: [
+            {message: '荆轲刺秦王'},
+            {message: '两条毛腿肩上扛'}
+        ]
+    }, {
+        messages: [
+            {message: '塔台您好，速派1354这边，呃...... 有一点急啊，小问题。呃... 现在是单发，然后... 目视进场。', data: {printSpeed: 60}},
+            {message: '好，速派1354，这边收到你的，呃... panpan 了。地面风 060 2m/s，修压1028。跑道01，可以落地。', data: {printSpeed: 60}},
+            {message: '跑道01可以落地，速派1354。我靠这个，风有点大啊。', data: {printSpeed: 60}}
+        ]
     }
 ];

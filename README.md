@@ -127,5 +127,8 @@
 | - | - | - | - |
 | value | Number | 定时器延时毫秒。 | undefined |
 
+### stop
+立即停止打印，触发 `stop` 事件，且不触发其他事件。
+
 ### typewriteEnd
 打字动作效果结束，触发 `typewriteEnd` 事件。

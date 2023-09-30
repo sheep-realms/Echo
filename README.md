@@ -16,6 +16,7 @@
 | pause | Number | 当前文本输出完毕后的停顿时间。( `Echo.printSpeed * pause` ms ) |
 | speed | Number | 当前文本的打印速度，即每个打印循环所用时间（ms）。 |
 | typewrite | String | 模拟打字动作。在输出 `text` 字段的内容之前先打印此字段的内容，随后被 `text` 字段的内容替换。 |
+| event | String | 自定义事件名。 |
 
 ## 消息队列格式
 消息队列为 Array 类型，每一个数组元素包含以下值：

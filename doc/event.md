@@ -5,6 +5,13 @@
 ## clear
 清空事件，由 `clear()` 方法触发。开始打印时触发。
 
+## customEvent
+自定义事件，由 `groupStart()` 方法触发，在 `groupStart` 事件之前。
+
+| 参数类型 | 描述 |
+| - | - |
+| String | 自定义事件名。 |
+
 ## groupEnd
 分组结束事件，由 `groupEnd()` 方法触发。当消息对象中的段落打印完成时触发。
 

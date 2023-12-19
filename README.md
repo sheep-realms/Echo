@@ -46,7 +46,7 @@
 | messageBuffer | Array | 消息缓冲区。 | [] |
 | messageList | Array | 消息队列。 | [] |
 | dbChrBuffer | String | 中日韩字符缓冲区。 | '' |
-| timer | Number | 定时器ID。 | 0 |
+| timer | Number | 定时器 ID。 | 0 |
 | groupCount | Number | 分组计数。 | 0 |
 | groupStack | Array | 分组堆栈。 | [] |
 | printSpeed | Number | 打印速度。 | 30 |
@@ -54,7 +54,13 @@
 | printSpeedChange | Number | 打印过程中的打印速度。 | 30 |
 | state | String | 运行状态。 | 'stop' |
 | typewrite | String | 打字动作状态。 | 'none' |
+| filter | Object | 过滤器状态开关。 | 见下文。 |
 | event | Object | 用于绑定事件。 | 略 |
+
+#### 属性 filter 中的值
+| 名称 | 类型 | 描述 | 默认值 |
+| - | - | - | - |
+| HTMLFormat | Boolean | HTML 格式化，用于过滤空格、尖括号等可能影响 HTML 渲染的字符，阻止脚本注入。 | true |
 
 ### rd
 快速部署，需要 JQuery 支持，适用于简单的应用场景，仅提供基本功能，不支持自定义样式、动作等高级功能。

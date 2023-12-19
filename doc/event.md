@@ -5,6 +5,14 @@
 ## clear
 清空事件，由 `clear()` 方法触发。开始打印时触发。
 
+## customData
+自定义数据，根据数据的存放位置不同分别由 `send()`、`groupStart()` 方法触发，在 `customEvent` 事件之后。
+
+| 参数类型 | 描述 |
+| - | - |
+| Object | 自定义数据。 |
+
+
 ## customEvent
 自定义事件，由 `groupStart()` 方法触发，在 `groupStart` 事件之前。
 

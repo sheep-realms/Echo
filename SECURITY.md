@@ -6,7 +6,14 @@
 | 1.0.6 | :white_check_mark: |
 | < 1.0.6 | :x: |
 
-## 如何报告安全漏洞 / Reporting a Vulnerability
+## 通过 GitHub 报告安全漏洞 / Reporting Vulnerability from GitHub
+通过以下链接报告安全漏洞：
+
+Report vulnerabilities through the following link:
+
+https://github.com/sheep-realms/Echo/security/advisories
+
+## 通过邮件报告安全漏洞 / Reporting Vulnerability from Email
 
 ### 发送邮件至邮箱 / Send to Email
 sheeprealms+security@gmail.com

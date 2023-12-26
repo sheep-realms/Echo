@@ -250,11 +250,11 @@ class Echo {
         if (data?.printSpeed) {
             this.printSpeedStart = data.printSpeed;
             this.printSpeedChange = data.printSpeed;
-            if (data?.customData) this.event.customData(data.customData);
         } else {
             this.printSpeedStart = this.printSpeed;
             this.printSpeedChange = this.printSpeed;
         }
+        if (data?.customData) this.event.customData(data.customData);
         this.timer = setInterval(this.print, this.printSpeedStart, this);
         this.state = 'ready';
         return this.message;

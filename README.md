@@ -86,6 +86,15 @@
 | - | - | - | - |
 | obj | Object | 产生新分组的序列对象。 | |
 
+### insertSequence
+在消息缓冲区的头部插入自定义序列。当打印遇到自定义序列时触发 `customSequence` 事件。
+
+| 参数名称 | 类型 | 描述 | 默认值 |
+| - | - | - | - |
+| data | Object | 自定义序列数据。 | {} |
+| afterSpace | Number | 在自定义序列之前占用的打印循环次数。 | 0 |
+| beforeSpace | Number | 在自定义序列之后占用的打印循环次数。 | 0 |
+
 ### messageSerialize
 序列化消息对象。
 

@@ -12,13 +12,19 @@
 | - | - |
 | Object | 自定义数据。 |
 
-
 ## customEvent
 自定义事件，由 `groupStart()` 方法触发，在 `groupStart` 事件之前。
 
 | 参数类型 | 描述 |
 | - | - |
 | String | 自定义事件名。 |
+
+## customSequence 
+自定义序列，在打印过程中遇到自定义序列时触发。
+
+| 参数类型 | 描述 |
+| - | - |
+| Object | 自定义序列数据。 |
 
 ## groupEnd
 分组结束事件，由 `groupEnd()` 方法触发。当消息对象中的段落打印完成时触发。

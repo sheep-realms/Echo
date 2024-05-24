@@ -16,6 +16,7 @@
 | pause | Number | 当前文本输出完毕后的停顿时间。( `Echo.printSpeed * pause` ms ) |
 | speed | Number | 当前文本的打印速度，即每个打印循环所用时间（ms）。 |
 | typewrite | String | 模拟打字动作。在输出 `text` 字段的内容之前先打印此字段的内容，随后被 `text` 字段的内容替换。 |
+| ruby | String | 文本顶部注释。 |
 | event | String | 自定义事件名。 |
 | data | Object | 自定义数据。 |
 
@@ -56,6 +57,7 @@
 | printSpeedChange | Number | 打印过程中的打印速度。 | 30 |
 | state | String | 运行状态。 | 'stop' |
 | typewrite | String | 打字动作状态。 | 'none' |
+| ruby | Boolean | 是否正在打印包含注释的内容。 | false |
 | filter | Object | 过滤器状态开关。 | 见下文。 |
 | event | Object | 用于绑定事件。 | 略 |
 

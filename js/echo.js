@@ -209,7 +209,7 @@ class Echo {
             if (typeof that.messageBuffer[0] == 'string') {
                 a = that.messageBuffer.shift();
                 // 中日韩字符及其他汉字文化圈字符跳过一回合
-                if ((a.search(this.skipOnePrintLoopChar) != -1) && that.typewrite == 'none') {
+                if ((a.search(that.skipOnePrintLoopChar) != -1) && that.typewrite == 'none') {
                     that.dbChrBuffer = a;
                     return;
                 }

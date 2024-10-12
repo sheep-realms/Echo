@@ -60,7 +60,7 @@
 | ruby | Boolean | 是否正在打印包含注释的内容。 | false |
 | filter | Object | 过滤器状态开关。 | 见下文。 |
 | event | Object | 用于绑定事件。 | 略 |
-| CJKAndFullWidthSymbolAndEmoji | RegExp | 需要跳过一个打印循环的字符。 | 略 |
+| skipOnePrintLoopChar | RegExp | 需要跳过一个打印循环的字符。 | 略 |
 
 #### 属性 filter 中的值
 | 名称 | 类型 | 描述 | 默认值 |

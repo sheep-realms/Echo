@@ -1,9 +1,7 @@
 name: Build echo.js
 
 on:
-  push:
-    branches: ["master"]
-  pull_request:
+  workflow_dispatch
 
 jobs:
   build:
@@ -25,6 +23,7 @@ jobs:
       - name: Build echo.js and echo.min.js
         run: |
           mkdir -p js
+          mkdir -p dist
           cp js/echo.js dist/echo.js
           terser js/echo.js -o dist/echo.min.js --compress --mangle
 

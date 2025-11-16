@@ -1,0 +1,35 @@
+name: Build echo.js
+
+on:
+  push:
+    branches: ["master"]
+  pull_request:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install dependencies
+        run: |
+          npm install terser -g
+
+      - name: Build echo.js and echo.min.js
+        run: |
+          mkdir -p js
+          cp js/echo.js dist/echo.js
+          terser js/echo.js -o dist/echo.min.js --compress --mangle
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: echo-js-build
+          path: dist/

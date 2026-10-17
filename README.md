@@ -26,6 +26,7 @@
 | 名称 | 类型 | 描述 |
 | - | - | - |
 | message | String / Array / Object | 消息对象。 |
+| track | Array | 子轨道数组，包含消息对象 |
 | data | Object | 打印启动参数。 |
 
 ## 打印启动参数格式
@@ -37,14 +38,17 @@
 | customData | Object | 自定义数据。 |
 
 ## 类：Echo
-### 构建参数
+### 构造参数
 | 名称 | 类型 | 描述 | 默认值 |
 | - | - | - | - |
 | $sel | String | 见 [#rd](#rd)。内容为空则不执行 `rd()` 方法。 | '' |
+| track | String | 轨道名称，用于创建子轨道。 | 'main' |
 
-### 属性
+### 实例属性
 | 名称 | 类型 | 描述 | 默认值 |
 | - | - | - | - |
+| track | String | 轨道名称。 | 'main' |
+| subTrack | Map | 子轨道实例 Map，仅主轨道有此属性。 | 略 |
 | message | String / Array / Object | 上一条消息。 | '' |
 | messageBuffer | Array | 消息缓冲区。 | [] |
 | messageList | Array | 消息队列。 | [] |
@@ -61,8 +65,10 @@
 | filter | Object | 过滤器状态开关。 | 见下文。 |
 | event | Object | 用于绑定事件。 | 略 |
 | skipOnePrintLoopChar | RegExp | 需要跳过一个打印循环的字符。 | 略 |
+| isMainTrack | Boolean | 是否为主轨道。 | 略 |
+| hasSubTrack | Boolean | 是否有子轨道。 | 略 |
 
-#### 属性 filter 中的值
+#### 实例属性 filter 中的值
 | 名称 | 类型 | 描述 | 默认值 |
 | - | - | - | - |
 | HTMLFormat | Boolean | HTML 格式化，用于过滤空格、尖括号等可能影响 HTML 渲染的字符，阻止脚本注入。 | true |
@@ -153,3 +159,23 @@
 
 ### typewriteEnd
 打字动作效果结束，触发 `typewriteEnd` 事件。
+
+### createSubTrack
+创建子轨道。
+
+| 参数名称 | 类型 | 描述 | 默认值 |
+| - | - | - | - |
+| name | String | 子轨道名称。 | undefined |
+
+### destroySubTrack
+销毁子轨道。
+
+| 参数名称 | 类型 | 描述 | 默认值 |
+| - | - | - | - |
+| name | String | 子轨道名称。 | undefined |
+
+### clearSubTrack
+清空子轨道。
+
+### destroy
+销毁实例。若未处于 `stop` 状态则触发 `stop` 事件。
